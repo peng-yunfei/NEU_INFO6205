@@ -1,0 +1,6 @@
+B,B,G,G,Y,Y,W
+B,B,B,G,G,Y,W
+B,R,B,G,X,Y,W
+B,R,B,G,X,Y,W
+B,R,R,G,X,Y,W
+R,R,R,G,X,Y,Y

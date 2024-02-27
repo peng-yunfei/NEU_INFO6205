@@ -46,7 +46,7 @@ def paint_fill(color_array, start_node, target_color, replace_color):
         print('\n')
     print("Number of cells modified:", len(modified_cells))
 
-
+# read the array from the txt file
 def read_txt(filename):
     color_array = []
     with open(filename, 'r') as f:

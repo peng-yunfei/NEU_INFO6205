@@ -56,8 +56,8 @@ def read_txt(filename):
     return color_array
 
 def main():
-    file1 = "PA/testcase1.txt"
-    file2 = "PA/testcase2.txt"
+    file1 = "testcase1.txt"
+    file2 = "testcase2.txt"
     start_node1 = (0, 0)
     target_color = 'B'
     replace_color = 'Y'

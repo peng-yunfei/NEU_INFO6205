@@ -1,3 +1,4 @@
+import argparse
 # Determine whether the inputs are valid
 def valid_input(color_array, start_node, target_color):
     if color_array is None or len(color_array) == 0:
@@ -56,20 +57,24 @@ def read_txt(filename):
     return color_array
 
 def main():
-    file1 = "testcase1.txt"
-    file2 = "testcase2.txt"
-    start_node1 = (0, 0)
-    target_color = 'B'
-    replace_color = 'Y'
-    color_array1 = read_txt(file1)
-    if valid_input(color_array1, start_node1, target_color):
-        paint_fill(color_array1, start_node1, target_color, replace_color)
 
-    print('\n')
-    color_array2 = read_txt(file2)
-    start_node2 = (0, 2)
-    if valid_input(color_array2, start_node2, target_color):
-        paint_fill(color_array2, start_node2, target_color, replace_color)
+    # input form should be
+    # python PA1.py --input [input txt file] [target color] [replace color] [start point]
+    # for example
+    # python PA1.py --input testcase1.txt B Y "(0,0)"
+    parser = argparse.ArgumentParser(description="Paint fill tool")
+    parser.add_argument('--input', type=str, help='Input text file')
+    parser.add_argument('target_color', type=str, help='Target color')
+    parser.add_argument('replace_color', type=str, help='Replace color')
+    parser.add_argument('start_point', type=str, help='Start point (x,y)')
+    args = parser.parse_args()
+
+    color_array = read_txt(args.input)
+    target_color = args.target_color
+    replace_color = args.replace_color
+    start_node = tuple(map(int, args.start_point.strip("()").split(',')))
+    if valid_input(color_array, start_node, target_color):
+        paint_fill(color_array, start_node, target_color, replace_color)
 
 if __name__ == '__main__':
     main()

@@ -51,7 +51,8 @@ def find_shortest_cycle(graph):
     for vertex in graph:
         distances = dijkstra(graph, vertex)
         for v in graph:
-            if v != vertex and distances[vertex] != float('inf'):
+            # if v != vertex and distances[vertex] != float('inf'):
+            if distances[vertex] != float('inf'):
                 for dest, w in graph[v]:
                     if vertex == dest:
                         cycle = distances[v] + w
